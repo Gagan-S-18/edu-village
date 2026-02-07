@@ -4,11 +4,16 @@
 
 .notification-bell-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .notification-bell {
   background: none;
+  display: flex;
+  align-items: center;
   border: none;
+  gap: 16px;
   font-size: 24px;
   cursor: pointer;
   position: relative;

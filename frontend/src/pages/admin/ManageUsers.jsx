@@ -251,7 +251,7 @@ const handleUnblock = async (userId) => {
       {/* Page Header */}
       <div className="page-header">
         <div className="header-top">
-          <div>
+          <div> 
             <h1>{getPageTitle()}</h1>
             <p className="results-count">{getResultsText()}</p>
           </div>

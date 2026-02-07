@@ -33,7 +33,7 @@ const DashboardLayout = ({ userRole = 'student', username = 'User', children }) 
     const getMenuItems = () => {
         const baseMenu = [
             { id: 'home', label: 'Home', icon: '🏠', path: '/home' },
-            { id: 'profile', label: 'Profile', icon: '👤', path: '/profile' },
+            // { id: 'profile', label: 'Profile', icon: '👤', path: '/profile' },
         ];
 
         if (userRole === 'student') {
@@ -102,25 +102,24 @@ const DashboardLayout = ({ userRole = 'student', username = 'User', children }) 
                 {/* Navbar right (user info) */}
                 <div className="navbar-right">
                     <div className="user-info">
-                        <span className="user-role">{userRole}</span>
-                        <span className="user-name">{username}</span>
-
-                        <div className="top-right-actions">
+                        {/* <span className="user-role">{userRole}</span> */}
+                        {/* <span className="user-name">{username}</span> */}
+                        <div className="notification-bell-container">
                             <NotificationBell />
 
-                            <div className="user-info">
-                            </div>
-
-                            
                         </div>
                     </div>
-                    <button
-                        className="logout-btn"
-                        onClick={handleLogout}
-                        title="Logout"
-                    >
-                        Logout
-                    </button>
+
+
+                    <div className="top-right-actions">
+                        <button className="profile-btn" sx={{transparent: true, border:'none'}}>
+                            👤
+                        </button>
+
+                        <button className="logout-btn">
+                            Logout
+                        </button>
+                    </div>
                 </div>
             </nav>
 

@@ -102,8 +102,8 @@ const Home = () => {
     return (
         <div className="home-page">
             {/* Top Navigation */}
-            <nav className="home-navbar">
-                <div className="navbar-container">
+            {/* <nav className="home-navbar">
+                <div className="navbar-container"> */}
                     <div className="navbar-logo">
                         {/* <span className="logo-icon">🎓</span>
                         <span className="logo-text">EduVillage</span> */}
@@ -117,8 +117,8 @@ const Home = () => {
                             Logouttt
                         </button> */}
                     </div>
-                </div>
-            </nav>
+                {/* </div>
+            </nav> */}
 
             {/* Welcome Section */}
             <section className="welcome-section">
@@ -136,7 +136,7 @@ const Home = () => {
                         <div className="decoration-shape shape-2"></div>
                     </div>
                 </div>
-            </section>
+             </section> 
 
             {/* Quick Actions Section */}
             <section className="quick-actions-section">
@@ -156,7 +156,7 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+           </section>
 
             {/* Role-Specific Content Section */}
             <section className="content-section">
@@ -187,7 +187,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> 
 
             {/* Footer */}
             <footer className="home-footer">

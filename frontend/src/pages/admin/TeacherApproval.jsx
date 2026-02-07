@@ -176,18 +176,26 @@ function TeacherApproval() {
                       <button
                         className="action-btn approve-btn"
                         onClick={() => handleApprove(teacher.id)}
-                        disabled={actionInProgress !== null}
+                        disabled={actionInProgress === teacher.id}
                         title="Approve teacher"
+                        style={{
+                          opacity: actionInProgress === teacher.id ? 0.6 : 1,
+                          cursor: actionInProgress === teacher.id ? 'not-allowed' : 'pointer'
+                        }}
                       >
-                        ✓ Approve
+                        {actionInProgress === teacher.id ? '⏳ Processing...' : '✓ Approve'}
                       </button>
                       <button
                         className="action-btn reject-btn"
                         onClick={() => handleReject(teacher.id)}
-                        disabled={actionInProgress !== null}
+                        disabled={actionInProgress === teacher.id}
                         title="Reject teacher"
+                        style={{
+                          opacity: actionInProgress === teacher.id ? 0.6 : 1,
+                          cursor: actionInProgress === teacher.id ? 'not-allowed' : 'pointer'
+                        }}
                       >
-                        ✕ Reject
+                        {actionInProgress === teacher.id ? '⏳ Processing...' : '✕ Reject'}
                       </button>
                     </td>
                   </tr>

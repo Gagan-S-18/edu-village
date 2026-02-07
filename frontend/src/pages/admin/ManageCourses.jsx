@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../../styles/manage-courses.css";
 
 function ManageCourses() {
+  const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [teacher, setTeachers] = useState([]);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [assigningCourse, setAssigningCourse] = useState(null);
 
   useEffect(() => {
   const fetchCourses = async () => {
     try {
+      setLoading(true);
       const token = localStorage.getItem("access");
 
       if (!token) {
-        alert("No token found. Please login again.");
+        setError("No token found. Please login again.");
         return;
       }
 
@@ -27,15 +34,18 @@ function ManageCourses() {
       );
 
       if (response.status === 401) {
-        alert("Unauthorized - Admin access required");
+        setError("Unauthorized - Admin access required");
         return;
       }
 
       const data = await response.json();
       setCourses(data);
+      setError("");
     } catch (error) {
       console.error("Error loading courses:", error);
-      alert("Failed to load courses");
+      setError("Failed to load courses");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -48,25 +58,22 @@ function ManageCourses() {
   const token = localStorage.getItem("access");
   if (!token) return;
 
-  fetch("http://127.0.0.1:8000/api/users/admin/users/", {
+  fetch("http://127.0.0.1:8000/api/users/admin/teachers/approved/", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
     .then((res) => res.json())
     .then((data) => {
-      const onlyTeachers = data.filter((u) => u.role === "teacher");
-      setTeachers(onlyTeachers);
+      setTeachers(data);
     })
-    .catch(() => {});
+    .catch(() => {
+      console.error("Failed to load approved teachers");
+    });
 }, []);
 
   const handleDelete = async (courseId) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this course?"
-    );
-
-    if (!confirmDelete) return;
+    if (!window.confirm("Are you sure you want to delete this course?")) return;
 
     try {
       const res = await fetch(
@@ -82,20 +89,24 @@ function ManageCourses() {
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.error || "Delete failed");
+        setError(data.error || "Delete failed");
+        setTimeout(() => setError(""), 5000);
         return;
       }
 
       setCourses(courses.filter((c) => c.id !== courseId));
-      alert("Course deleted successfully");
+      setSuccess("Course deleted successfully");
+      setTimeout(() => setSuccess(""), 3000);
     } catch {
-      alert("Server error");
+      setError("Server error - Failed to delete course");
+      setTimeout(() => setError(""), 5000);
     }
   };
 
   const handleAssignTeacher = async (courseId, teacherId) => {
   if (!teacherId) return;
 
+  setAssigningCourse(courseId);
   try {
     const res = await fetch(
       `http://127.0.0.1:8000/api/courses/admin/courses/${courseId}/assign-teacher`,
@@ -112,79 +123,114 @@ function ManageCourses() {
     const data = await res.json();
 
     if (!res.ok) {
-      alert(data.error || "Failed to assign teacher");
+      setError(data.error || "Failed to assign teacher");
+      setTimeout(() => setError(""), 5000);
+      setAssigningCourse(null);
       return;
     }
 
-    // Update UI
+    // Update UI with assigned teacher
+    const assignedTeacher = teacher.find((t) => t.id === Number(teacherId));
     setCourses(
       courses.map((c) =>
         c.id === courseId
           ? {
               ...c,
-              instructor:
-                teacher.find((t) => teacher.id === Number(teacherId))?.username ||
-                c.instructor,
+              instructor: assignedTeacher?.username || c.instructor,
+              instructor_id: assignedTeacher?.id,
             }
           : c
       )
     );
 
-    alert("Teacher assigned successfully");
+    setSuccess(`Teacher assigned successfully`);
+    setTimeout(() => setSuccess(""), 3000);
+    setAssigningCourse(null);
   } catch {
-    alert("Server error");
+    setError("Server error - Failed to assign teacher");
+    setTimeout(() => setError(""), 5000);
+    setAssigningCourse(null);
   }
 };
 
   return (
     <div className="page">
       <h1>Manage Courses</h1>
+      
+      {/* Toast Notifications */}
+      {success && <div className="toast toast-success">{success}</div>}
+      {error && <div className="toast toast-error">{error}</div>}
+      
+      <div style={{ marginBottom: "1.5rem" }}>
+        <button
+          onClick={() => navigate('/admin/create-course')}
+          className="btn btn-primary"
+        >
+          ➕ Create New Course
+        </button>
+      </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      {!error && (
-        <table border="1" cellPadding="10">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Instructor</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {courses.map((course) => (
-              <tr key={course.id}>
-                <td>{course.id}</td>
-                <td>{course.title}</td>
-                <td>
-  <div>
-    <div>{course.instructor || "Not assigned"}</div>
-
-    <select
-      defaultValue=""
-      onChange={(e) =>
-        handleAssignTeacher(course.id, e.target.value)
-      }
-    >
-      <option value="">Assign teacher</option>
-      {teacher.map((t) => (
-        <option key={t.id} value={t.id}>
-          {teacher.username}
-        </option>
-      ))}
-    </select>
-  </div>
-</td>
-                <td>
-                  <button onClick={() => handleDelete(course.id)}>
-                    Delete
-                  </button>
-                </td>
+      {loading ? (
+        <p style={{ textAlign: "center", fontSize: "1rem", color: "#666" }}>Loading courses...</p>
+      ) : !error && (
+        <div className="table-container">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Instructor</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {courses.length === 0 ? (
+                <tr>
+                  <td colSpan="4" style={{ textAlign: "center", padding: "2rem" }}>
+                    No courses found. Create one to get started.
+                  </td>
+                </tr>
+              ) : (
+                courses.map((course) => (
+                  <tr key={course.id}>
+                    <td>{course.id}</td>
+                    <td>{course.title}</td>
+                    <td>
+                      <div className="instructor-cell">
+                        <div className="instructor-name">
+                          {course.instructor || "Not assigned"}
+                        </div>
+                        <select
+                          className="teacher-select"
+                          defaultValue=""
+                          onChange={(e) =>
+                            handleAssignTeacher(course.id, e.target.value)
+                          }
+                          disabled={assigningCourse === course.id}
+                        >
+                          <option value="">Assign teacher</option>
+                          {teacher.map((t) => (
+                            <option key={t.id} value={t.id}>
+                              {t.username}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(course.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

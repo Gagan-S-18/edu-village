@@ -261,6 +261,30 @@ button:not(:disabled):active::after {
     }
 }
 
+.top-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-btn {
+   background: none;
+    display: flex;
+    align-items: center;
+    border: none;
+    gap: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+    padding: 4px;
+    transition: transform 0.2s ease;
+}
+
+/* .profile-btn:hover {
+  background: #1b9aaa; 
+  color: white;
+} */
+
 /* ===== FORM ELEMENTS ===== */
 
 input,

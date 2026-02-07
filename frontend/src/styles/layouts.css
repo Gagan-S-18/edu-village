@@ -255,11 +255,6 @@
   gap: 20px;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
 .user-role {
   font-size: 12px;
