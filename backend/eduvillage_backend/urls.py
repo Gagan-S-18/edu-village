@@ -5,6 +5,9 @@ from django.conf.urls.static import static
 from apps.users.views import CustomTokenObtainPairView
 from django.http import HttpResponse
 
+def home(request):
+    return HttpResponse("Welcome to EduVillage API! 🚀")
+
 
 
 urlpatterns = [
