@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from apps.users.views import CustomTokenObtainPairView
+from django.http import HttpResponse
 
 
 
@@ -28,6 +29,7 @@ urlpatterns += [
     path('api/dashboard/', include('apps.dashboard.urls')),
     path("api/enrollments/", include("apps.enrollments.urls")),
     path("api/enrollments/", include("apps.enrollments.urls")),
+    path("", lambda request: HttpResponse("Backend is running 🚀")),
 
 ]
 
