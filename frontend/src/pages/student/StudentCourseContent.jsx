@@ -490,17 +490,39 @@ const StudentCourseContent = () => {
                                             <span style={styles.statusPending}>○ Pending</span>
                                         )}
                                     </div>
-                                    <div style={{ flex: 1, ...styles.tableCell }}>
-                                        {!item.completed && (
-                                            <button
-                                                style={styles.markCompleteButton}
-                                                onClick={() => handleMarkComplete(item.id)}
-                                                disabled={markingComplete[item.id]}
-                                            >
-                                                {markingComplete[item.id] ? '...' : 'Mark Done'}
-                                            </button>
-                                        )}
-                                    </div>
+                                    <div style={{ flex: 1, ...styles.tableCell, gap: '8px' }}>
+
+    {/* Download Button */}
+    {item.file && (
+        <a
+            href={`http://127.0.0.1:8000${item.file}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+                backgroundColor: '#2563EB',
+                color: 'white',
+                padding: '6px 10px',
+                borderRadius: '4px',
+                fontSize: '0.8rem',
+                textDecoration: 'none',
+                fontWeight: 'bold'
+            }}
+        >
+            View
+        </a>
+    )}
+
+    {/* Mark Complete Button */}
+    {!item.completed && (
+        <button
+            style={styles.markCompleteButton}
+            onClick={() => handleMarkComplete(item.id)}
+            disabled={markingComplete[item.id]}
+        >
+            {markingComplete[item.id] ? '...' : 'Mark Done'}
+        </button>
+    )}
+</div>
                                 </div>
                             ))}
                         </div>

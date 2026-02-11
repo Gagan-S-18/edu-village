@@ -1,0 +1,281 @@
+/* Manage Courses Styling */
+
+.page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page h1 {
+  color: #1b3a3d;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-success {
+  background-color: #10b981;
+  color: white;
+}
+
+.toast-error {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #1b9aaa;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #158a97;
+  box-shadow: 0 4px 12px rgba(27, 154, 170, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+/* Table Container */
+.table-container {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Table */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.admin-table thead {
+  background-color: #1b3a3d;
+  color: white;
+  font-weight: 700;
+}
+
+.admin-table thead th {
+  padding: 1.25rem;
+  text-align: left;
+  border: none;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.admin-table tbody td {
+  padding: 1rem 1.25rem;
+}
+
+/* Instructor Cell */
+.instructor-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.instructor-name {
+  color: #1b3a3d;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  min-height: 24px;
+}
+
+/* Teacher Select */
+.teacher-select {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: white;
+  color: #1b3a3d;
+}
+
+.teacher-select:hover {
+  border-color: #1b9aaa;
+  box-shadow: 0 2px 8px rgba(27, 154, 170, 0.15);
+}
+
+.teacher-select:focus {
+  outline: none;
+  border-color: #1b9aaa;
+  box-shadow: 0 0 0 3px rgba(27, 154, 170, 0.1);
+}
+
+.teacher-select:disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.teacher-select option {
+  padding: 0.5rem;
+  color: #1b3a3d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .page h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .admin-table {
+    font-size: 0.85rem;
+  }
+
+  .admin-table thead th,
+  .admin-table tbody td {
+    padding: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-danger {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .instructor-cell {
+    flex-direction: column;
+  }
+
+  .teacher-select {
+    width: 100%;
+  }
+
+  .toast {
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 0.5rem;
+  }
+
+  .page h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .admin-table thead,
+  .admin-table tbody,
+  .admin-table th,
+  .admin-table td,
+  .admin-table tr {
+    display: block;
+  }
+
+  .admin-table thead {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .admin-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .admin-table td {
+    position: relative;
+    padding-left: 50%;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border: none;
+  }
+
+  .admin-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    font-weight: 700;
+    color: #1b3a3d;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .teacher-select {
+    width: 100%;
+  }
+}

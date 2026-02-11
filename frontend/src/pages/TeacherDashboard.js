@@ -28,7 +28,7 @@ function TeacherDashboard() {
     try {
       setLoading(true);
       setError("");
-      
+
       const token = localStorage.getItem("access");
       if (!token) {
         setError("Authentication failed. Please login again.");
@@ -49,10 +49,11 @@ function TeacherDashboard() {
       }
 
       const data = await response.json();
+      console.log("dashboard stats", data)
       setStats({
-        totalCourses: data.total_courses || 0,
-        totalStudents: data.total_students || 0,
-        activeAssignments: data.active_assignments || 0,
+        totalCourses: data.total_courses ?? 0,
+        totalStudents: data.total_students ?? 0,
+        activeAssignments: data.active_assignments ?? 0,
       });
     } catch (err) {
       console.error("Error fetching teacher stats:", err);
@@ -90,7 +91,7 @@ function TeacherDashboard() {
       title: 'Student Progress',
       description: 'Track student learning',
       icon: '📊',
-      action: () => navigate('/teacher/courses'),
+          action: () => navigate('/teacher/courses'),
       color: 'action-purple'
     },
   ];
@@ -116,7 +117,7 @@ function TeacherDashboard() {
       </div>
     );
   }
-
+console.log("dash stats", stats)
   return (
     <div className="dashboard-page">
       {/* Page Header */}
@@ -129,7 +130,7 @@ function TeacherDashboard() {
       {error && (
         <div className="alert alert-error" style={{ marginBottom: '2rem' }}>
           <span>⚠️ {error}</span>
-          <button 
+          <button
             onClick={fetchTeacherStats}
             style={{
               marginLeft: '1rem',
@@ -156,17 +157,23 @@ function TeacherDashboard() {
             <div className="stat-label">Courses</div>
           </div>
         </div>
-        <div className="stat-card" style={{ cursor: 'pointer' }} onClick={() => navigate('/teacher/courses')}>
+        <div className="stat-card" style={{ cursor: 'pointer' }} onClick={() => navigate('/teacher/students')}>
           <div className="stat-icon">👥</div>
           <div className="stat-content">
-            <div className="stat-value">{stats.totalStudents}</div>
+            <div className="stat-value">{stats.totalStudents ?? 0}</div>
             <div className="stat-label">Students</div>
           </div>
         </div>
-        <div className="stat-card">
+        <div
+          className="stat-card"
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('/teacher/courses?status=active')}
+        >
           <div className="stat-icon">📋</div>
+
           <div className="stat-content">
             <div className="stat-value">{stats.activeAssignments}</div>
+
             <div className="stat-label">Active</div>
           </div>
         </div>

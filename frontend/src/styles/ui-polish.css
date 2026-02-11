@@ -264,7 +264,7 @@ button:not(:disabled):active::after {
 .top-right-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .profile-btn {

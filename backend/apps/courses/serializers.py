@@ -1,10 +1,57 @@
 from rest_framework import serializers
-from .models import Course, CourseContent, AssignmentSubmission, Certificate
+from .models import Course, CourseContent, AssignmentSubmission, Certificate, StudentCourseProgress
 
+# class CourseSerializer(serializers.ModelSerializer):
+#     contents = CourseContentSerializer(
+#         many=True,
+#         read_only=True,
+#         source="content"  # IMPORTANT (related_name)
+#     )
+
+#     class Meta:
+#         model = Course
+#         fields = "all"
+
+
+
+
+class CourseContentSerializer(serializers.ModelSerializer):
+    file_url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CourseContent
+        fields = [
+            "id",
+            "course",
+            "title",
+            "content_type",
+            "file",
+            "file_url",
+            "created_at",
+        ]
+
+    def get_file_url(self, obj):
+        request = self.context.get("request")
+
+        if obj.file and request:
+            return request.build_absolute_uri(obj.file.url)
+
+        if obj.file_url:
+            return obj.file_url
+
+        return None
+
+# # 2️⃣ THEN define CourseSerializer
 class CourseSerializer(serializers.ModelSerializer):
+    contents = CourseContentSerializer(
+        many=True,
+        read_only=True,
+        source="content"   # related_name
+    )
+
     class Meta:
         model = Course
-        fields = '__all__'
+        fields = "__all__"
 
 
 class AdminCreateCourseSerializer(serializers.ModelSerializer):
@@ -34,12 +81,33 @@ class AdminCreateCourseSerializer(serializers.ModelSerializer):
         return value.strip()
 
 
-class CourseContentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CourseContent
-        fields = ['id', 'course', 'title', 'content_type', 'file', 'file_url', 'created_at']
-        read_only_fields = ['id', 'created_at']
+# class CourseContentSerializer(serializers.ModelSerializer):
+#     class Meta:
+        # model = CourseContent
+        # fields = ['id', 'course', 'title', 'content_type', 'file', 'file_url', 'created_at']
+        # read_only_fields = ['id', 'created_at']
 
+# class CourseContentSerializer(serializers.ModelSerializer):
+#     file = serializers.SerializerMethodField()
+
+#     class Meta:
+#         model = CourseContent
+#         fields = [
+#             "id",
+#             "title",
+#             "content_type",
+#             "file",
+#             "file_url",
+#             "created_at",
+#         ]
+
+#     def get_file(self, obj):
+#         request = self.context.get("request")
+#         if obj.file:
+#             if request:
+#                 return request.build_absolute_uri(obj.file.url)
+#             return obj.file.url
+#         return None
 
 class AssignmentSubmissionSerializer(serializers.ModelSerializer):
     """Serializer for student assignment submissions."""

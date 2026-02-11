@@ -1,0 +1,13 @@
+.back-btn {
+  margin: 10px 0 20px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0f766e; /* EduVillage-style */
+  color: white;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #115e59;
+}

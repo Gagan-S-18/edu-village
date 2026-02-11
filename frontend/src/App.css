@@ -12,3 +12,14 @@ body {
 .page {
   padding: 40px;
 }
+
+:root {
+  /* 🔷 Company official colors */
+  --brand-primary: #2563eb;   /* replace with exact brand blue */
+  --brand-secondary: #1e40af;
+  --brand-danger: #dc2626;
+  --brand-bg: #ffffff;
+  --brand-border: #e5e7eb;
+  --brand-text: #111827;
+  --brand-muted: #6b7280;
+}

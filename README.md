@@ -19,6 +19,20 @@
 
 ---
 
+## EduVillage — Online Learning Platform
+
+- **Project Name:** EduVillage — Online Learning Platform
+- **Project ID:** FSD114
+- **Internship Program:** CivoraX Internship Program
+- **Company:** Civora Nexus Pvt. Ltd.
+- **Phase:** Phase-1 — Base project structure only (React frontend + Django backend)
+- **Tech Stack (primary):** React, Django, PostgreSQL (Postgres planned for production)
+
+> Civora Nexus branding guidelines are followed. All brand assets live under `resources/branding/`.
+
+
+---
+
 ## 📊 Program Statistics
 
 | Metric | Value |

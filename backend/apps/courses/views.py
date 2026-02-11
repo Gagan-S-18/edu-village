@@ -374,7 +374,7 @@ def add_course_content(request, course_id):
             file_url=file_url if file_url else None
         )
         
-        serializer = CourseContentSerializer(content)
+        serializer = CourseContentSerializer(content, context={"request": request})
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     except Exception as e:

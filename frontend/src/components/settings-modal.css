@@ -1,0 +1,45 @@
+.settings-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.settings-modal {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 8px;
+  min-width: 260px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.setting-item {
+  margin: 12px 0;
+  display: flex;
+  gap: 8px;
+}
+
+.close-btn {
+  margin-top: 10px;
+}
+
+/* 🔧 FORCE dashboard to follow theme */
+body[data-theme="dark"] .dashboard,
+body[data-theme="dark"] .dashboard-content,
+body[data-theme="dark"] .admin-dashboard,
+body[data-theme="dark"] .page {
+  background-color: #121212 !important;
+  color: #ffffff;
+  body[data-theme="dark"] .settings-modal {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+}
+
+/* ✅ Font sizes */
+body[data-font="small"] { font-size: 14px; }
+body[data-font="medium"] { font-size: 16px; }
+body[data-font="large"] { font-size: 18px; }

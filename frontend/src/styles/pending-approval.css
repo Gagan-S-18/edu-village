@@ -1,0 +1,237 @@
+/* ============================================
+   PENDING APPROVAL PAGE STYLES
+   ============================================ */
+
+:root {
+  --primary-teal: #1B9AAA;
+  --teal-dark: #16808D;
+  --navy-core: #142C52;
+  --text-dark: #071426;
+  --background: #F4F7FA;
+  --surface: #FFFFFF;
+  --success: #22C55E;
+  --alert: #EF4444;
+}
+
+.pending-approval-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy-core) 0%, var(--primary-teal) 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.pending-approval-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 50px 40px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pending-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.pending-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy-core);
+  margin: 0 0 20px;
+}
+
+.pending-content {
+  margin: 30px 0;
+  text-align: left;
+}
+
+.pending-message {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4B5563;
+  margin: 12px 0;
+}
+
+.pending-message strong {
+  color: var(--primary-teal);
+  font-weight: 600;
+}
+
+/* Info boxes */
+.pending-info-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin: 35px 0;
+  padding: 25px;
+  background: #F0F9FA;
+  border-radius: 12px;
+  border: 1px solid rgba(27, 154, 170, 0.2);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.info-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* FAQ section */
+.pending-faq {
+  text-align: left;
+  margin: 30px 0;
+  padding: 20px;
+  background: #FFFAED;
+  border-left: 4px solid #F59E0B;
+  border-radius: 8px;
+}
+
+.pending-faq h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-core);
+  margin: 0 0 12px;
+}
+
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq-list li {
+  font-size: 14px;
+  color: #4B5563;
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.faq-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-teal);
+  font-weight: 600;
+}
+
+/* Support section */
+.pending-support {
+  margin: 25px 0;
+  padding: 15px;
+  background: #EFF6FF;
+  border-radius: 8px;
+  border: 1px solid rgba(27, 154, 170, 0.15);
+}
+
+.support-text {
+  font-size: 13px;
+  color: #4B5563;
+  margin: 0;
+}
+
+.support-text strong {
+  color: var(--primary-teal);
+  font-weight: 600;
+}
+
+/* Logout button */
+.logout-button {
+  background: var(--navy-core);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.logout-button:hover {
+  background: var(--primary-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(27, 154, 170, 0.3);
+}
+
+.logout-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .pending-approval-card {
+    padding: 30px 20px;
+  }
+
+  .pending-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+  }
+
+  .pending-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .pending-message {
+    font-size: 14px;
+  }
+
+  .pending-info-box {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .pending-faq {
+    margin: 20px 0;
+    padding: 15px;
+  }
+
+  .logout-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

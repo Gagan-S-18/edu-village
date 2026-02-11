@@ -107,7 +107,7 @@ const TeacherMyCourses = () => {
     return (
         <div className="teacher-courses-container">
             <div className="page-header">
-                <h1>My Courses</h1>
+                <h1>Student Progress</h1>
                 <p className="subtitle">Manage and track your courses</p>
             </div>
 

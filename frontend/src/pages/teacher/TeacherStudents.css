@@ -1,0 +1,73 @@
+.teacher-students-page {
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Table container */
+.table-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+/* Table */
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-table thead {
+  background-color: #f5f7fa;
+}
+
+.students-table th,
+.students-table td {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.students-table th {
+  font-weight: 600;
+  color: #333;
+}
+
+.students-table tbody tr {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.students-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Status badge */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: #e6f4ea;
+  color: #1e7e34;
+}
+
+.status-badge.inactive {
+  background-color: #fdecea;
+  color: #b02a37;
+}

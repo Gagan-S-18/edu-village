@@ -1,0 +1,476 @@
+/* Submissions List Styles */
+
+.submissions-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.submissions-loading,
+.submissions-error,
+.submissions-empty {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.submissions-loading .spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1B9AAA;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.submissions-error .error-message {
+  color: #c33;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.retry-button {
+  background-color: #1B9AAA;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+  background-color: #16808D;
+}
+
+/* Header */
+.submissions-header {
+  padding: 2rem 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #eee;
+}
+
+.header-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.header-stats .stat {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.header-stats .stat strong {
+  color: #1B9AAA;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Grid Layout */
+.submissions-grid {
+  padding: 1.5rem;
+}
+
+.grid-header {
+  margin-bottom: 2rem;
+}
+
+.grid-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #142C52;
+  margin: 0 0 0.5rem 0;
+}
+
+.grid-hint {
+  margin: 0;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Students List */
+.students-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.student-submission-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.student-submission-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Student Header */
+.student-submission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.student-submission-header:hover {
+  background-color: #f0f1f2;
+}
+
+.student-submission-header.expanded {
+  background-color: #e8f4f5;
+  border-bottom-color: #1B9AAA;
+}
+
+.student-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.expand-icon {
+  font-size: 1rem;
+  color: #666;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.student-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1B9AAA, #16808D);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.student-info-submission {
+  min-width: 0;
+}
+
+.student-info-submission .student-name {
+  margin: 0;
+  font-weight: 600;
+  color: #1B9AAA;
+  word-break: break-word;
+}
+
+.student-info-submission .student-username {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.student-submission-count {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* Submission Badges */
+.submission-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.submission-badge.has-submissions {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.submission-badge.no-submissions {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Submissions Details */
+.student-submissions-details {
+  padding: 1.5rem;
+  background-color: #fafafa;
+}
+
+.no-submissions-message {
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+/* Submissions Table */
+.submissions-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.submissions-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.submissions-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.submissions-table-row:hover {
+  background-color: #f9f9f9;
+}
+
+.col-assignment,
+.col-submitted,
+.col-file,
+.col-action {
+  display: flex;
+  align-items: center;
+}
+
+.col-assignment p,
+.col-submitted p,
+.col-file p {
+  margin: 0;
+}
+
+.assignment-title {
+  font-weight: 600;
+  color: #1B9AAA;
+  word-break: break-word;
+}
+
+.submission-date {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.submission-updated {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.25rem;
+}
+
+.file-name {
+  color: #666;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.download-button {
+  background-color: #1B9AAA;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.download-button:hover {
+  background-color: #16808D;
+}
+
+.download-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .submissions-table-header,
+  .submissions-table-row {
+    grid-template-columns: 1.5fr 1.5fr 1.5fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .submissions-table-header,
+  .submissions-table-row {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 0.75rem;
+  }
+
+  .col-file {
+    grid-column: 1 / -1;
+  }
+
+  .col-action {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .download-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .student-submission-header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .student-header-left {
+    flex: 1 1 100%;
+  }
+
+  .student-submission-count {
+    flex: 1 1 100%;
+  }
+
+  .header-stats {
+    gap: 1rem;
+  }
+
+  .grid-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .submissions-container {
+    border-radius: 0;
+  }
+
+  .submissions-header,
+  .submissions-grid {
+    padding: 1rem;
+  }
+
+  .submissions-table-header,
+  .submissions-table-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .submissions-table-header {
+    display: none;
+  }
+
+  .submissions-table-row {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background-color: white;
+  }
+
+  .col-assignment::before {
+    content: 'Assignment: ';
+    font-weight: bold;
+    color: #666;
+  }
+
+  .col-submitted::before {
+    content: 'Submitted: ';
+    font-weight: bold;
+    color: #666;
+  }
+
+  .col-file::before {
+    content: 'File: ';
+    font-weight: bold;
+    color: #666;
+  }
+
+  .col-action::before {
+    content: 'Action: ';
+    font-weight: bold;
+    color: #666;
+  }
+
+  .assignment-title {
+    font-size: 0.9rem;
+  }
+
+  .submission-date {
+    font-size: 0.8rem;
+  }
+
+  .student-submission-header {
+    padding: 1rem;
+  }
+
+  .expand-icon {
+    min-width: 15px;
+  }
+
+  .student-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .student-info-submission .student-name {
+    font-size: 0.9rem;
+  }
+
+  .submission-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .header-stats {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .header-stats .stat {
+    font-size: 0.85rem;
+  }
+}

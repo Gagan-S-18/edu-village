@@ -123,12 +123,12 @@ const StudentMyCourses = () => {
                     <p style={styles.pageSubtitle}>Track your learning progress</p>
                 </div>
                 <div style={styles.headerButtons}>
-                    <button
+                    {/* <button
                         style={styles.certificatesButton}
                         onClick={() => navigate('/student/certificates')}
                     >
                         🏆 My Certificates
-                    </button>
+                    </button> */}
                     <button
                         style={styles.browseLinkButton}
                         onClick={() => navigate('/student/browse')}

@@ -144,7 +144,7 @@ def teacher_dashboard_stats(request):
     ).distinct().count()
 
     return Response({
-        "courses": courses_count,
-        "students": students_count,
-        "active": courses_count  # or any logic you want
+        "total_courses": courses_count,
+        "total_students": students_count,
+        "active_assignments": courses_count, # or any logic you want
     }) 

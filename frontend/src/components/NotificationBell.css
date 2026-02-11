@@ -8,6 +8,8 @@
   align-items: center;
 }
 
+
+
 .notification-bell {
   background: none;
   display: flex;
@@ -19,6 +21,16 @@
   position: relative;
   padding: 4px;
   transition: transform 0.2s ease;
+}
+
+.notification-bell-container {
+    display: flex;
+    gap: 4px;
+    word-spacing: revert;
+    padding: 10;
+    align-self: stretch;
+    align-items: end;
+    border-spacing: 6px;
 }
 
 .notification-bell:hover {

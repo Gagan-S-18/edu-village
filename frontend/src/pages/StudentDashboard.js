@@ -86,7 +86,7 @@ function StudentDashboard() {
             progress_percentage: 0, 
             is_completed: false,
             total_content: 0,
-            completed_content: 0
+            completed_content: 0 
           };
         }
       }

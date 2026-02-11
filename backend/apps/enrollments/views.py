@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 
@@ -12,6 +12,7 @@ from .models import Enrollment
 from .serializers import EnrollmentSerializer, CourseEnrollmentSerializer
 from .permissions import IsStudent
 from apps.courses.models import Course
+from apps.enrollments.models import Enrollment
 
 class EnrollmentView(APIView):
     permission_classes = [IsAuthenticated, IsStudent]
@@ -106,3 +107,44 @@ def course_students_count(request, course_id):
         'course_id': course_id,
         'student_count': student_count
     }, status=status.HTTP_200_OK)
+
+
+
+@api_view(["GET"])
+@permission_classes([IsAdminUser])
+def admin_enrollments(request):
+    enrollments = Enrollment.objects.select_related("student", "course")
+
+    data = []
+    for e in enrollments:
+        data.append({
+            "id": e.id,
+            "student": e.student.username,
+            "course": e.course.title,
+            "status": e.status,
+            "enrolled_at": e.enrolled_at,
+        })
+
+    return Response(data)
+
+class TeacherStudentsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        teacher = request.user
+
+        enrollments = Enrollment.objects.filter(
+            course__instructor=teacher
+        ).select_related("student", "course")
+
+        data = []
+        for e in enrollments:
+            data.append({
+                "student_id": e.student.id,
+                "student_name": e.student.username,
+                "course_title": e.course.title,
+                "status": e.status,
+                "enrolled_at": e.enrolled_at,
+            })
+
+        return Response(data)

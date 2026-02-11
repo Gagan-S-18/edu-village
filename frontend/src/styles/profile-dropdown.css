@@ -1,0 +1,85 @@
+/* Wrapper around icon + dropdown */
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Profile icon button */
+.profile-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.profile-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Dropdown box */
+.profile-dropdown {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 230px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  z-index: 1000;
+  text-align: left;
+}
+
+/* Header (role + email) */
+.profile-header {
+  font-size: 13px;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.profile-header .role {
+  font-weight: 600;
+}
+
+.profile-header .email {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Items */
+.profile-item {
+  padding: 8px 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.profile-item:hover {
+  background: #f3f4f6;
+}
+
+/* Divider */
+.profile-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 10px 0;
+}
+
+/* Logout */
+.profile-logout {
+  width: 100%;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.profile-logout:hover {
+  background: #fecaca;
+}

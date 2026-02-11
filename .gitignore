@@ -53,3 +53,16 @@ temp/
 # Package lock files (optional - uncomment if needed)
 # package-lock.json
 # yarn.lock
+
+# Django production files
+backend/staticfiles/
+media/
+db.sqlite3
+
+# Python
+pycache/
+*.pyc
+
+# Virtual env
+venv/
+.env

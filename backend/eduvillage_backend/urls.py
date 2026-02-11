@@ -26,6 +26,8 @@ urlpatterns += [
     path('api/notifications/', include('apps.notifications.urls')),
     path('api/token/', CustomTokenObtainPairView.as_view()),
     path('api/dashboard/', include('apps.dashboard.urls')),
+    path("api/enrollments/", include("apps.enrollments.urls")),
+    path("api/enrollments/", include("apps.enrollments.urls")),
 
 ]
 

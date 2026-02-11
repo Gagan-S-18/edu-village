@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/layouts.css';
 import NotificationBell from '../../components/NotificationBell';
+import SettingsModal from "../SettingsModal";
+import "../../styles/profile-dropdown.css";
+
 
 /**
  * DashboardLayout - Wrapper for all Dashboard pages (Student, Teacher, Admin)
@@ -16,6 +19,31 @@ const DashboardLayout = ({ userRole = 'student', username = 'User', children }) 
     const navigate = useNavigate();
     const location = useLocation();
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [settingsOpen, setSettingsOpen] = useState(false);
+
+
+
+
+    // ✅ ADD: get logged-in user safely
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+    const [profileOpen, setProfileOpen] = useState(false);
+    const profileRef = useRef(null);
+    // ✅ ADD THIS FUNCTION (DO NOT CHANGE ANYTHING ELSE)
+    const toggleProfile = () => {
+        setProfileOpen(prev => !prev);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            console.log("clicked:", e.target)
+            if (profileRef.current && !profileRef.current.contains(e.target)) {
+                setProfileOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     const handleLogout = () => {
         localStorage.removeItem('access');
@@ -23,6 +51,18 @@ const DashboardLayout = ({ userRole = 'student', username = 'User', children }) 
         localStorage.removeItem('role');
         localStorage.removeItem('username');
         navigate('/login');
+    };
+
+    // ✅ ADD: change password
+    const handleChangePassword = () => {
+        navigate("/change-password"); // route later if needed
+        setProfileOpen(false);
+    };
+
+    // ✅ ADD: settings
+    const handleSettings = () => {
+        navigate("/settings"); // or open modal later
+        setProfileOpen(false);
     };
 
     const handleLogoClick = () => {
@@ -69,6 +109,8 @@ const DashboardLayout = ({ userRole = 'student', username = 'User', children }) 
         return location.pathname.startsWith(path) && path !== '/profile';
     };
 
+
+
     // Close sidebar on mobile when route changes
     React.useEffect(() => {
         setSidebarOpen(false);
@@ -101,24 +143,54 @@ const DashboardLayout = ({ userRole = 'student', username = 'User', children }) 
 
                 {/* Navbar right (user info) */}
                 <div className="navbar-right">
-                    <div className="user-info">
-                        {/* <span className="user-role">{userRole}</span> */}
-                        {/* <span className="user-name">{username}</span> */}
-                        <div className="notification-bell-container">
-                            <NotificationBell />
+                    {/* <div className="user-info"> */}
 
+                    {/* <span className="user-role">{userRole}</span> */}
+                    {/* <span className="user-name">{username}</span> */}
+
+
+                    <div className="notification-bell-container">
+                        <NotificationBell />
+
+
+
+                        <div className="profile-wrapper">
+                            <button
+                                className="profile-btn"
+                                onClick={() => setProfileOpen((prev) => !prev)}
+                                aria-label="Profile"
+                            >
+                                👤
+                            </button>
+                            {profileOpen && (
+                                <div className="profile-dropdown" ref={profileRef}>
+                                    <div className="profile-header">
+                                        <div className="role">Role: admin</div>
+                                        <div className="email">Email: admin@gmail.com</div>
+                                    </div>
+
+                                    <div className="profile-item" onClick={() => {
+                                        setProfileOpen(false);
+                                        navigate("/change-password");
+                                    }}> Change Password </div>
+
+                                    <div className="profile-item" onClick={() => {
+                                        setSettingsOpen(true);
+                                    }}> Settings </div>
+
+                                    <div className="profile-divider" />
+                                    <div>
+                                        {/* ✅ Settings Modal */}
+                                        <SettingsModal
+                                            open={settingsOpen}
+                                            onClose={() => setSettingsOpen(false)}
+                                        />
+                                    </div>
+
+                                    <button className="profile-logout" onClick={handleLogout}>Logout</button>
+                                </div>
+                            )}
                         </div>
-                    </div>
-
-
-                    <div className="top-right-actions">
-                        <button className="profile-btn" sx={{transparent: true, border:'none'}}>
-                            👤
-                        </button>
-
-                        <button className="logout-btn">
-                            Logout
-                        </button>
                     </div>
                 </div>
             </nav>

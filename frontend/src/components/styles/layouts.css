@@ -245,18 +245,18 @@
     background-clip: text;
 }
 
-.navbar-right {
+/* .navbar-right {
     display: flex;
     align-items: center;
     gap: 24px;
-}
+} */
 
-.user-info {
+/* .user-info {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     align-items: center;
     gap: 12px;
-}
+} */
 
 .user-role {
     font-size: 11px;

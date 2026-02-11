@@ -1,0 +1,294 @@
+/* ============================================
+   TEACHER APPROVAL SECTION STYLES
+   ============================================ */
+
+:root {
+  --primary-teal: #1B9AAA;
+  --teal-dark: #16808D;
+  --navy-core: #142C52;
+  --text-dark: #071426;
+  --background: #F4F7FA;
+  --surface: #FFFFFF;
+  --success: #22C55E;
+  --alert: #EF4444;
+  --border-light: #E5E7EB;
+  --text-light: #6B7280;
+}
+
+.teacher-approval-section {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 30px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-core);
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Error and success messages */
+.approval-error-message {
+  padding: 12px 14px;
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-left: 4px solid var(--alert);
+  border-radius: 6px;
+  color: var(--alert);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.approval-success-message {
+  padding: 12px 14px;
+  background-color: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-left: 4px solid var(--success);
+  border-radius: 6px;
+  color: #16A34A;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Loading message */
+.loading-message {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.empty-text {
+  font-size: 16px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* Teachers container */
+.teachers-container {
+  margin-top: 20px;
+}
+
+.pending-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy-core);
+  margin: 0 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pending-count::before {
+  content: "🔔";
+  font-size: 16px;
+}
+
+/* Table wrapper */
+.teachers-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.teachers-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.teachers-table thead {
+  background: #F9FAFB;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.teachers-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-core);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.teachers-table tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  transition: background-color 0.2s ease;
+}
+
+.teachers-table tbody tr:hover {
+  background-color: #F9FAFB;
+}
+
+.teachers-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.teachers-table td {
+  padding: 16px;
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.cell-name {
+  font-weight: 600;
+  color: var(--navy-core);
+}
+
+.cell-email {
+  color: var(--text-light);
+  word-break: break-word;
+}
+
+.cell-qualification,
+.cell-subject,
+.cell-experience {
+  color: var(--text-light);
+}
+
+/* Actions column */
+.cell-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.approve-btn {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.approve-btn:hover:not(:disabled) {
+  background: var(--success);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.reject-btn {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--alert);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.reject-btn:hover:not(:disabled) {
+  background: var(--alert);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .teacher-approval-section {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .teachers-table {
+    font-size: 13px;
+  }
+
+  .teachers-table th,
+  .teachers-table td {
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teacher-approval-section {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  .teachers-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .teachers-table {
+    min-width: 600px;
+  }
+
+  .cell-qualification,
+  .cell-subject {
+    display: none;
+  }
+
+  .cell-actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-approval-section {
+    padding: 12px;
+    margin-top: 15px;
+  }
+
+  .section-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .teachers-table {
+    min-width: 500px;
+    font-size: 12px;
+  }
+
+  .teachers-table th,
+  .teachers-table td {
+    padding: 10px 8px;
+  }
+
+  .pending-count {
+    font-size: 12px;
+  }
+}
