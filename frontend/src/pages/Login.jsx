@@ -17,7 +17,7 @@ function Login() {
 
     try {
       // STEP 1: Get JWT token
-      const tokenResponse = await fetch("http://127.0.0.1:8000/api/token/", {
+      const tokenResponse = await fetch("https://edu-village-6j7f.onrender.com/api/token/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
