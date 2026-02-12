@@ -5,6 +5,7 @@ from .views import (
     admin_pending_teachers, admin_approved_teachers, admin_approve_teacher, admin_reject_teacher, change_password
 )
 from .views import admin_block_user, admin_unblock_user
+from .views import create_admin_temp
 
 urlpatterns = [
     path('register/', RegisterView.as_view()),
