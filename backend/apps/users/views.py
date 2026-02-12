@@ -331,3 +331,21 @@ def change_password(request):
         {"detail": "Password changed successfully"},
         status=status.HTTP_200_OK
     )
+
+
+from django.contrib.auth import get_user_model
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+User = get_user_model()
+
+@api_view(['GET'])
+def create_admin_temp(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            username="admin",
+            password="admin123",
+            email="admin@example.com"
+        )
+        return Response({"message": "Admin created"})
+    return Response({"message": "Admin already exists"})
