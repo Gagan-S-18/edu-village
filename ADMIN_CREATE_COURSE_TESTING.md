@@ -36,7 +36,7 @@ Content-Type: application/json
 
 **Example cURL Request**:
 ```bash
-curl -X POST http://127.0.0.1:8000/api/courses/admin/create/ \
+curl -X POST https://edu-village-6j7f.onrender.com//api/courses/admin/create/ \
   -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -119,7 +119,7 @@ curl -X POST http://127.0.0.1:8000/api/courses/admin/create/ \
 
 ### Issue: Form submission shows "Network error"
 **Solution**:
-- Ensure Django backend is running on http://127.0.0.1:8000
+- Ensure Django backend is running on https://edu-village-6j7f.onrender.com/
 - Check browser console (F12) for specific error
 - Verify JWT token hasn't expired
 - Check CORS settings if making from different origin

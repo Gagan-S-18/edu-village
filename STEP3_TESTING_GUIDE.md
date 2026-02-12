@@ -9,7 +9,7 @@
    cd backend
    python manage.py runserver
    ```
-   Should run on `http://127.0.0.1:8000`
+   Should run on `https://edu-village-6j7f.onrender.com/`
 
 2. **Start the Frontend**
    ```bash

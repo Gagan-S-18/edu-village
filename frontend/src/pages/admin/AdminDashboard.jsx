@@ -46,7 +46,7 @@ function AdminDashboard() {
         return;
       }
 
-      const response = await fetch("http://127.0.0.1:8000/api/dashboard/admin/stats/", {
+      const response = await fetch("https://edu-village-6j7f.onrender.com//api/dashboard/admin/stats/", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

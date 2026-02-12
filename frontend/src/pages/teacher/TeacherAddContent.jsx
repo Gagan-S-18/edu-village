@@ -25,7 +25,7 @@ const TeacherAddContent = () => {
 
         try {
             const token = localStorage.getItem('access');
-            await axios.post(`http://127.0.0.1:8000/api/courses/teacher/${id}/content/`, formData, {
+            await axios.post(`https://edu-village-6j7f.onrender.com//api/courses/teacher/${id}/content/`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             navigate(`/teacher/courses/${id}`);

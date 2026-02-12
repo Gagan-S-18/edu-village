@@ -23,7 +23,7 @@ function ManageCourses() {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/courses/admin/courses",
+        "https://edu-village-6j7f.onrender.com//api/courses/admin/courses",
         {
           method: "GET",
           headers: {
@@ -58,7 +58,7 @@ function ManageCourses() {
   const token = localStorage.getItem("access");
   if (!token) return;
 
-  fetch("http://127.0.0.1:8000/api/users/admin/teachers/approved/", {
+  fetch("https://edu-village-6j7f.onrender.com//api/users/admin/teachers/approved/", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -77,7 +77,7 @@ function ManageCourses() {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/api/courses/admin/courses/${courseId}/delete`,
+        `https://edu-village-6j7f.onrender.com//api/courses/admin/courses/${courseId}/delete`,
         {
           method: "DELETE",
           headers: {
@@ -109,7 +109,7 @@ function ManageCourses() {
   setAssigningCourse(courseId);
   try {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/courses/admin/courses/${courseId}/assign-teacher`,
+      `https://edu-village-6j7f.onrender.com//api/courses/admin/courses/${courseId}/assign-teacher`,
       {
         method: "PATCH",
         headers: {

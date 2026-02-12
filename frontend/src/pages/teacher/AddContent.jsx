@@ -25,7 +25,7 @@ const AddContent = () => {
                 return;
             }
 
-            const response = await axios.get('http://127.0.0.1:8000/api/courses/teacher/add-content-courses/', {
+            const response = await axios.get('https://edu-village-6j7f.onrender.com//api/courses/teacher/add-content-courses/', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCourses(response.data);

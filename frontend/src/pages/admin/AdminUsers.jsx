@@ -37,7 +37,7 @@ function AdminUsers() {
         return;
       }
 
-      let url = 'http://127.0.0.1:8000/api/users/admin/users/';
+      let url = 'https://edu-village-6j7f.onrender.com//api/users/admin/users/';
       if (roleFilter) {
         url += `?role=${roleFilter}`;
       }

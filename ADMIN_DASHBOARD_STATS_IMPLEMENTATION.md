@@ -108,7 +108,7 @@ const fetchDashboardStats = async () => {
   
   // 2. Fetch from backend
   const response = await fetch(
-    "http://127.0.0.1:8000/api/dashboard/admin/stats/",
+    "https://edu-village-6j7f.onrender.com//api/dashboard/admin/stats/",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -340,12 +340,12 @@ Action: Page refreshes to retry
 ```bash
 # Get admin stats
 curl -H "Authorization: Bearer {admin_token}" \
-     http://127.0.0.1:8000/api/dashboard/admin/stats/
+     https://edu-village-6j7f.onrender.com//api/dashboard/admin/stats/
 ```
 
 ### Using Postman
 1. Set method to **GET**
-2. URL: `http://127.0.0.1:8000/api/dashboard/admin/stats/`
+2. URL: `https://edu-village-6j7f.onrender.com//api/dashboard/admin/stats/`
 3. Headers tab:
    - Key: `Authorization`
    - Value: `Bearer {admin_token}`

@@ -96,7 +96,7 @@ const UploadContentModal = ({ isOpen, courseId, contentType, onClose, onSuccess 
             // Send to backend
             const token = localStorage.getItem('access');
             const response = await axios.post(
-                `http://127.0.0.1:8000/api/courses/teacher/${courseId}/content/`,
+                `https://edu-village-6j7f.onrender.com//api/courses/teacher/${courseId}/content/`,
                 formData,
                 {
                     headers: {

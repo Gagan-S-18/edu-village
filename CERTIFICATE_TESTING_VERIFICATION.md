@@ -345,13 +345,13 @@ curl -H "Authorization: Bearer TOKEN" \
 **To debug frontend:**
 ```javascript
 // Check certificate fetching
-axios.get('http://127.0.0.1:8000/api/courses/student/certificates/')
+axios.get('https://edu-village-6j7f.onrender.com//api/courses/student/certificates/')
 
 // Check certificate generation
-axios.post('http://127.0.0.1:8000/api/courses/student/1/generate-certificate/', {})
+axios.post('https://edu-village-6j7f.onrender.com//api/courses/student/1/generate-certificate/', {})
 
 // Check file download
-fetch('http://127.0.0.1:8000/api/courses/student/certificates/1/download/', {
+fetch('https://edu-village-6j7f.onrender.com//api/courses/student/certificates/1/download/', {
   headers: { 'Authorization': 'Bearer TOKEN' }
 })
 ```

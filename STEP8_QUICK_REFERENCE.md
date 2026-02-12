@@ -294,13 +294,13 @@ from .serializers import CertificateSerializer
 ```javascript
 // Fetch certificates
 const response = await axios.get(
-  'http://127.0.0.1:8000/api/courses/student/certificates/',
+  'https://edu-village-6j7f.onrender.com//api/courses/student/certificates/',
   { headers: { Authorization: `Bearer ${token}` } }
 );
 
 // Generate certificate
 const response = await axios.post(
-  `http://127.0.0.1:8000/api/courses/student/${courseId}/generate-certificate/`,
+  `https://edu-village-6j7f.onrender.com//api/courses/student/${courseId}/generate-certificate/`,
   {},
   { headers: { Authorization: `Bearer ${token}` } }
 );

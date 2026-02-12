@@ -460,7 +460,7 @@ Technologies:
 ## Next Steps
 
 To use this component:
-1. Ensure backend is running on http://127.0.0.1:8000
+1. Ensure backend is running on https://edu-village-6j7f.onrender.com/
 2. Ensure frontend is running on http://localhost:3000
 3. Student logs in and navigates to My Courses
 4. Click "View Course" on any enrolled course

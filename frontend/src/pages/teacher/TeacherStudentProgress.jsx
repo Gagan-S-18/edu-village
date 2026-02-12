@@ -15,7 +15,7 @@ const TeacherStudentProgress = () => {
     const fetchStudentProgress = async () => {
         try {
             const token = localStorage.getItem('access');
-            const response = await axios.get(`http://127.0.0.1:8000/api/courses/teacher/${id}/students-progress/`, {
+            const response = await axios.get(`https://edu-village-6j7f.onrender.com//api/courses/teacher/${id}/students-progress/`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCourseData(response.data);

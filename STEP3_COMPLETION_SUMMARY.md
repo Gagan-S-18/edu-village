@@ -273,7 +273,7 @@ All necessary APIs already implemented:
 ## 🚀 Deployment Ready
 
 ### Prerequisites
-- ✅ Backend running on `http://127.0.0.1:8000`
+- ✅ Backend running on `https://edu-village-6j7f.onrender.com/`
 - ✅ Frontend running on `http://localhost:3000`
 - ✅ Database populated with test data
 - ✅ Student enrolled in at least one course

@@ -24,7 +24,7 @@ function TeacherApproval() {
       setError("");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/users/admin/teachers/pending/",
+        "https://edu-village-6j7f.onrender.com//api/users/admin/teachers/pending/",
         {
           method: "GET",
           headers: {
@@ -55,7 +55,7 @@ function TeacherApproval() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/users/admin/teachers/${teacherId}/approve/`,
+        `https://edu-village-6j7f.onrender.com//api/users/admin/teachers/${teacherId}/approve/`,
         {
           method: "PATCH",
           headers: {
@@ -92,7 +92,7 @@ function TeacherApproval() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/users/admin/teachers/${teacherId}/reject/`,
+        `https://edu-village-6j7f.onrender.com//api/users/admin/teachers/${teacherId}/reject/`,
         {
           method: "PATCH",
           headers: {

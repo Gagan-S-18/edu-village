@@ -1,7 +1,7 @@
 # Testing Guide - Admin Manage Users Redesign
 
 ## Prerequisites
-- Backend running: `python manage.py runserver` (http://127.0.0.1:8000)
+- Backend running: `python manage.py runserver` (https://edu-village-6j7f.onrender.com/)
 - Frontend running: `npm start` (http://localhost:3000)
 - Logged in as admin
 

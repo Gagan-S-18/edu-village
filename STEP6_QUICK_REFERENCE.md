@@ -149,7 +149,7 @@ import SubmissionsList from '../../components/SubmissionsList';
 const fetchStudentProgress = async () => {
   try {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/courses/teacher/${id}/students-progress/`,
+      `https://edu-village-6j7f.onrender.com//api/courses/teacher/${id}/students-progress/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setProgressData(response.data.students);
@@ -162,7 +162,7 @@ const fetchStudentProgress = async () => {
 const fetchSubmissions = async () => {
   try {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/courses/teacher/${id}/submissions/`,
+      `https://edu-village-6j7f.onrender.com//api/courses/teacher/${id}/submissions/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setSubmissionsData(response.data);
