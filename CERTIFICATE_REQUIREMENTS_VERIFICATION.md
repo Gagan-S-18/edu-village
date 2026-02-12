@@ -67,7 +67,7 @@
   if (progressResponse.data.is_completed) {
       try {
           await axios.post(
-              `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/generate-certificate/`,
+              `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/generate-certificate/`,
               {},
               { headers: { Authorization: `Bearer ${token}` } }
           );

@@ -16,7 +16,7 @@ useEffect(() => {
       const token = localStorage.getItem("access");
 
       const res = await axios.get(
-        "https://edu-village-6j7f.onrender.com//api/enrollments/admin/",
+        "https://edu-village-6j7f.onrender.com/api/enrollments/admin/",
         {
           headers: {
             Authorization: `Bearer ${token}`,

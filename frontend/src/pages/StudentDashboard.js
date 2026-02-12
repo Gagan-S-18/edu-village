@@ -53,7 +53,7 @@ function StudentDashboard() {
 
       // Fetch student courses
       const coursesRes = await axios.get(
-        'https://edu-village-6j7f.onrender.com//api/courses/student/my-courses/',
+        'https://edu-village-6j7f.onrender.com/api/courses/student/my-courses/',
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setCourses(coursesRes.data);
@@ -67,7 +67,7 @@ function StudentDashboard() {
         try {
           // Fetch course contents
           const contentRes = await axios.get(
-            `https://edu-village-6j7f.onrender.com//api/courses/student/${course.id}/contents/`,
+            `https://edu-village-6j7f.onrender.com/api/courses/student/${course.id}/contents/`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           const courseContents = contentRes.data.contents || [];
@@ -76,7 +76,7 @@ function StudentDashboard() {
 
           // Fetch course progress
           const progressRes = await axios.get(
-            `https://edu-village-6j7f.onrender.com//api/courses/student/${course.id}/progress/`,
+            `https://edu-village-6j7f.onrender.com/api/courses/student/${course.id}/progress/`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           progressData[course.id] = progressRes.data;

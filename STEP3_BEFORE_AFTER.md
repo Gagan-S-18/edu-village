@@ -19,7 +19,7 @@ useEffect(() => {
 
 const fetchCourseContent = async () => {
     const response = await axios.get(
-        `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/contents/`,
+        `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/contents/`,
         { headers: { Authorization: `Bearer ${token}` } }
     );
     setCourseData(response.data);
@@ -27,7 +27,7 @@ const fetchCourseContent = async () => {
 
 const fetchProgress = async () => {
     const response = await axios.get(
-        `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/progress/`,
+        `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/progress/`,
         { headers: { Authorization: `Bearer ${token}` } }
     );
     setProgress(response.data);
@@ -48,13 +48,13 @@ const fetchAllCourseData = async () => {
         
         // Fetch course content and progress PARALLEL
         const contentResponse = await axios.get(
-            `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/contents/`,
+            `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/contents/`,
             { headers: { Authorization: `Bearer ${token}` } }
         );
         setCourseData(contentResponse.data);
 
         const progressResponse = await axios.get(
-            `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/progress/`,
+            `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/progress/`,
             { headers: { Authorization: `Bearer ${token}` } }
         );
         setProgress(progressResponse.data);
@@ -62,7 +62,7 @@ const fetchAllCourseData = async () => {
         // Also fetch full course details for instructor & description
         try {
             const courseResponse = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             const course = courseResponse.data.find(c => c.id === parseInt(id));
@@ -207,7 +207,7 @@ const handleMarkComplete = async (contentId) => {
     try {
         const token = localStorage.getItem('access');
         await axios.post(
-            `https://edu-village-6j7f.onrender.com//api/courses/student/${contentId}/complete/`,
+            `https://edu-village-6j7f.onrender.com/api/courses/student/${contentId}/complete/`,
             {},
             { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -237,7 +237,7 @@ const handleMarkComplete = async (contentId) => {
     try {
         const token = localStorage.getItem('access');
         await axios.post(
-            `https://edu-village-6j7f.onrender.com//api/courses/student/${contentId}/complete/`,
+            `https://edu-village-6j7f.onrender.com/api/courses/student/${contentId}/complete/`,
             {},
             { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -252,7 +252,7 @@ const handleMarkComplete = async (contentId) => {
         // Refresh progress after marking content complete
         try {
             const progressResponse = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/progress/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/progress/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setProgress(progressResponse.data);

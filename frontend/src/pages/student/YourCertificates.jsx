@@ -33,7 +33,7 @@ const YourCertificates = () => {
             }
 
             const response = await axios.get(
-                'https://edu-village-6j7f.onrender.com//api/courses/student/certificates/',
+                'https://edu-village-6j7f.onrender.com/api/courses/student/certificates/',
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
@@ -56,7 +56,7 @@ const YourCertificates = () => {
             const token = localStorage.getItem('access');
 
             const response = await fetch(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/certificates/${certificateId}/download/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/certificates/${certificateId}/download/`,
                 {
                     method: 'GET',
                     headers: {

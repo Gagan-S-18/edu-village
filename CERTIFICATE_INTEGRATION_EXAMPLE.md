@@ -344,7 +344,7 @@ async function issueCertificate(courseId) {
   try {
     const token = localStorage.getItem('access');
     const response = await axios.post(
-      `https://edu-village-6j7f.onrender.com//api/certificates/issue/`,
+      `https://edu-village-6j7f.onrender.com/api/certificates/issue/`,
       { course_id: courseId },
       {
         headers: { Authorization: `Bearer ${token}` }

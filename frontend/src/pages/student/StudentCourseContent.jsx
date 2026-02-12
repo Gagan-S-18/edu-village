@@ -64,14 +64,14 @@ const StudentCourseContent = () => {
 
             // Fetch course content and contents list
             const contentResponse = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/contents/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/contents/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setCourseData(contentResponse.data);
 
             // Fetch course progress
             const progressResponse = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/progress/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/progress/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setProgress(progressResponse.data);
@@ -79,7 +79,7 @@ const StudentCourseContent = () => {
             // Fetch full course details (instructor, description)
             try {
                 const courseResponse = await axios.get(
-                    `https://edu-village-6j7f.onrender.com//api/courses/`,
+                    `https://edu-village-6j7f.onrender.com/api/courses/`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
                 // Find the course matching our course_id
@@ -105,7 +105,7 @@ const StudentCourseContent = () => {
         try {
             const token = localStorage.getItem('access');
             await axios.post(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/${contentId}/complete/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/${contentId}/complete/`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -120,7 +120,7 @@ const StudentCourseContent = () => {
             // Refresh progress after marking content complete
             try {
                 const progressResponse = await axios.get(
-                    `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/progress/`,
+                    `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/progress/`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
                 setProgress(progressResponse.data);
@@ -129,7 +129,7 @@ const StudentCourseContent = () => {
                 if (progressResponse.data.is_completed) {
                     try {
                         await axios.post(
-                            `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/generate-certificate/`,
+                            `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/generate-certificate/`,
                             {},
                             { headers: { Authorization: `Bearer ${token}` } }
                         );
@@ -174,7 +174,7 @@ const StudentCourseContent = () => {
             for (const assignment of assignments) {
                 try {
                     const response = await axios.get(
-                        `https://edu-village-6j7f.onrender.com//api/courses/student/assignments/${assignment.id}/submission/`,
+                        `https://edu-village-6j7f.onrender.com/api/courses/student/assignments/${assignment.id}/submission/`,
                         { headers: { Authorization: `Bearer ${token}` } }
                     );
                     if (response.data.submitted) {
@@ -195,7 +195,7 @@ const StudentCourseContent = () => {
         try {
             const token = localStorage.getItem('access');
             const progressResponse = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/${id}/progress/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/${id}/progress/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setProgress(progressResponse.data);
@@ -214,7 +214,7 @@ const StudentCourseContent = () => {
             let certificate = null;
             try {
                 const certificatesResponse = await axios.get(
-                    'https://edu-village-6j7f.onrender.com//api/courses/student/certificates/',
+                    'https://edu-village-6j7f.onrender.com/api/courses/student/certificates/',
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
 
@@ -230,7 +230,7 @@ const StudentCourseContent = () => {
                 // Certificate doesn't exist yet, generate it
                 try {
                     const generateResponse = await axios.post(
-                        `https://edu-village-6j7f.onrender.com//api/courses/student/${courseId}/generate-certificate/`,
+                        `https://edu-village-6j7f.onrender.com/api/courses/student/${courseId}/generate-certificate/`,
                         {},
                         { headers: { Authorization: `Bearer ${token}` } }
                     );
@@ -268,7 +268,7 @@ const StudentCourseContent = () => {
     };
 
     const downloadCertificateFile = async (certificateId, token) => {
-        const downloadUrl = `https://edu-village-6j7f.onrender.com//api/courses/student/certificates/${certificateId}/download/`;
+        const downloadUrl = `https://edu-village-6j7f.onrender.com/api/courses/student/certificates/${certificateId}/download/`;
 
         const response = await fetch(downloadUrl, {
             method: 'GET',

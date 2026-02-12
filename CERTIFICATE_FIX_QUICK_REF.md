@@ -66,7 +66,7 @@ const handleDownloadCertificate = (certificate) => {
 const handleDownloadCertificate = async (certificate) => {
     try {
         const response = await fetch(
-            `https://edu-village-6j7f.onrender.com//api/courses/student/certificates/${certificateId}/download/`,
+            `https://edu-village-6j7f.onrender.com/api/courses/student/certificates/${certificateId}/download/`,
             { headers: { 'Authorization': `Bearer ${token}` } }
         );
         

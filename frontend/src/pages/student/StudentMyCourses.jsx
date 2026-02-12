@@ -30,7 +30,7 @@ const StudentMyCourses = () => {
 
             // Fetch enrolled courses
             const coursesRes = await axios.get(
-                'https://edu-village-6j7f.onrender.com//api/courses/student/my-courses/',
+                'https://edu-village-6j7f.onrender.com/api/courses/student/my-courses/',
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setCourses(coursesRes.data);
@@ -40,7 +40,7 @@ const StudentMyCourses = () => {
             for (const course of coursesRes.data) {
                 try {
                     const progressRes = await axios.get(
-                        `https://edu-village-6j7f.onrender.com//api/courses/student/${course.id}/progress/`,
+                        `https://edu-village-6j7f.onrender.com/api/courses/student/${course.id}/progress/`,
                         { headers: { Authorization: `Bearer ${token}` } }
                     );
                     progressData[course.id] = progressRes.data;

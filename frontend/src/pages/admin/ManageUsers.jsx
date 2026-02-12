@@ -35,7 +35,7 @@ function ManageUsers() {
     try {
       const token = localStorage.getItem("access");
       const res = await fetch(
-        "https://edu-village-6j7f.onrender.com//api/users/admin/users",
+        "https://edu-village-6j7f.onrender.com/api/users/admin/users",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ function ManageUsers() {
   const handleApprove = async (userId) => {
     try {
       const res = await fetch(
-        `https://edu-village-6j7f.onrender.com//api/users/admin/teachers/${userId}/approve/`,
+        `https://edu-village-6j7f.onrender.com/api/users/admin/teachers/${userId}/approve/`,
         {
           method: "PATCH",
           headers: {
@@ -100,7 +100,7 @@ function ManageUsers() {
   const handleReject = async (userId) => {
     try {
       const res = await fetch(
-        `https://edu-village-6j7f.onrender.com//api/users/admin/teachers/${userId}/reject/`,
+        `https://edu-village-6j7f.onrender.com/api/users/admin/teachers/${userId}/reject/`,
         {
           method: "PATCH",
           headers: {
@@ -124,7 +124,7 @@ function ManageUsers() {
   try {
     const token = localStorage.getItem("access");
     await axios.post(
-      `https://edu-village-6j7f.onrender.com//api/users/admin/users/${userId}/block/`,
+      `https://edu-village-6j7f.onrender.com/api/users/admin/users/${userId}/block/`,
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -146,7 +146,7 @@ const handleUnblock = async (userId) => {
   try {
     const token = localStorage.getItem("access");
     await axios.post(
-      `https://edu-village-6j7f.onrender.com//api/users/admin/users/${userId}/unblock/`,
+      `https://edu-village-6j7f.onrender.com/api/users/admin/users/${userId}/unblock/`,
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -168,7 +168,7 @@ const handleUnblock = async (userId) => {
   const handleDelete = async (userId) => {
     try {
       const res = await fetch(
-        `https://edu-village-6j7f.onrender.com//api/users/admin/users/${userId}/delete`,
+        `https://edu-village-6j7f.onrender.com/api/users/admin/users/${userId}/delete`,
         {
           method: "DELETE",
           headers: {

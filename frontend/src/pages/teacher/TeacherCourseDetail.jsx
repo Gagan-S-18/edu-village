@@ -23,7 +23,7 @@ const TeacherCourseDetail = () => {
     useEffect(() => {
         const fetchCourseDetail = async () => {
             try {
-                const response = await axios.get(`https://edu-village-6j7f.onrender.com//api/courses/teacher/${id}/`, {
+                const response = await axios.get(`https://edu-village-6j7f.onrender.com/api/courses/teacher/${id}/`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setCourse(response.data);
@@ -42,7 +42,7 @@ const TeacherCourseDetail = () => {
         setProgressError(null);
         try {
             const response = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/teacher/${id}/students-progress/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/teacher/${id}/students-progress/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setProgressData(response.data.students || []);
@@ -59,7 +59,7 @@ const TeacherCourseDetail = () => {
         setSubmissionsError(null);
         try {
             const response = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/teacher/${id}/submissions/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/teacher/${id}/submissions/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setSubmissionsData(response.data);

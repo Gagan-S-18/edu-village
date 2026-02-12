@@ -307,7 +307,7 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
 
 ### React Configuration (frontend/.env)
 ```
-REACT_APP_API_URL=https://edu-village-6j7f.onrender.com//api
+REACT_APP_API_URL=https://edu-village-6j7f.onrender.com/api
 # No new variables needed
 ```
 

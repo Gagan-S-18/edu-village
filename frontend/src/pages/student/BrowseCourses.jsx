@@ -33,7 +33,7 @@ const BrowseCourses = () => {
             }
 
             const response = await axios.get(
-                'https://edu-village-6j7f.onrender.com//api/enrollments/courses/browse/',
+                'https://edu-village-6j7f.onrender.com/api/enrollments/courses/browse/',
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
@@ -54,7 +54,7 @@ const BrowseCourses = () => {
 
             const token = localStorage.getItem('access');
             const response = await axios.post(
-                'https://edu-village-6j7f.onrender.com//api/enrollments/',
+                'https://edu-village-6j7f.onrender.com/api/enrollments/',
                 { course: courseId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

@@ -9,7 +9,7 @@ const TeacherMyCourses = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const API_BASE = 'https://edu-village-6j7f.onrender.com//api';
+    const API_BASE = 'https://edu-village-6j7f.onrender.com/api';
 
     useEffect(() => {
         const fetchCoursesAndProgress = async () => {

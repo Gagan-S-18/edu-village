@@ -20,7 +20,7 @@ const ChangePassword = () => {
             const token = localStorage.getItem("access");
 
             await axios.post(
-                "https://edu-village-6j7f.onrender.com//api/users/change-password/",
+                "https://edu-village-6j7f.onrender.com/api/users/change-password/",
                 {
                     old_password: currentPassword,
                     new_password: newPassword,

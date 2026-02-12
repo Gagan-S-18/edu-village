@@ -36,7 +36,7 @@ function TeacherDashboard() {
         return;
       }
 
-      const response = await fetch("https://edu-village-6j7f.onrender.com//api/dashboard/teacher/stats/", {
+      const response = await fetch("https://edu-village-6j7f.onrender.com/api/dashboard/teacher/stats/", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

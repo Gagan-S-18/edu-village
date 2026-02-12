@@ -120,7 +120,7 @@ errorWrapper: {
 const fetchTeacherStats = async () => {
   try {
     const response = await fetch(
-      "https://edu-village-6j7f.onrender.com//api/dashboard/teacher/stats/",
+      "https://edu-village-6j7f.onrender.com/api/dashboard/teacher/stats/",
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const data = await response.json();

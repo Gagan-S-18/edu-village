@@ -33,7 +33,7 @@ const AssignmentSubmissionModal = ({
         try {
             const token = localStorage.getItem('access');
             const response = await axios.get(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/assignments/${assignment.id}/submission/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/assignments/${assignment.id}/submission/`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             
@@ -72,7 +72,7 @@ const AssignmentSubmissionModal = ({
             formData.append('file', file);
 
             const response = await axios.post(
-                `https://edu-village-6j7f.onrender.com//api/courses/student/assignments/${assignment.id}/submit/`,
+                `https://edu-village-6j7f.onrender.com/api/courses/student/assignments/${assignment.id}/submit/`,
                 formData,
                 { 
                     headers: { 

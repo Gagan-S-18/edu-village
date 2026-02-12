@@ -61,7 +61,7 @@ const AdminCreateCourse = () => {
 
     try {
       const token = localStorage.getItem('access');
-      const response = await fetch('https://edu-village-6j7f.onrender.com//api/courses/admin/create/', {
+      const response = await fetch('https://edu-village-6j7f.onrender.com/api/courses/admin/create/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

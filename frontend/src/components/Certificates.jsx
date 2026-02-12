@@ -34,7 +34,7 @@ const Certificates = ({ studentDashboardCourses = [] }) => {
     setError(null);
     try {
       const response = await axios.get(
-        'https://edu-village-6j7f.onrender.com//api/courses/student/certificates/',
+        'https://edu-village-6j7f.onrender.com/api/courses/student/certificates/',
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setCertificates(response.data.certificates || []);
@@ -60,7 +60,7 @@ const Certificates = ({ studentDashboardCourses = [] }) => {
 
     try {
       const response = await axios.post(
-        `https://edu-village-6j7f.onrender.com//api/courses/student/${courseId}/generate-certificate/`,
+        `https://edu-village-6j7f.onrender.com/api/courses/student/${courseId}/generate-certificate/`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -101,7 +101,7 @@ const Certificates = ({ studentDashboardCourses = [] }) => {
 
       // Fetch PDF from backend
       const response = await fetch(
-        `https://edu-village-6j7f.onrender.com//api/courses/student/certificates/${certificateId}/download/`,
+        `https://edu-village-6j7f.onrender.com/api/courses/student/certificates/${certificateId}/download/`,
         {
           method: 'GET',
           headers: {

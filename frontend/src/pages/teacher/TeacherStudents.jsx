@@ -11,7 +11,7 @@ function TeacherStudents() {
         const token = localStorage.getItem("access");
 
         const res = await fetch(
-          "https://edu-village-6j7f.onrender.com//api/enrollments/teacher/students/",
+          "https://edu-village-6j7f.onrender.com/api/enrollments/teacher/students/",
           {
             headers: {
               Authorization: `Bearer ${token}`,

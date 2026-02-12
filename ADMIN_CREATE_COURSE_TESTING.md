@@ -36,7 +36,7 @@ Content-Type: application/json
 
 **Example cURL Request**:
 ```bash
-curl -X POST https://edu-village-6j7f.onrender.com//api/courses/admin/create/ \
+curl -X POST https://edu-village-6j7f.onrender.com/api/courses/admin/create/ \
   -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
