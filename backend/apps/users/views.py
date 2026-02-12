@@ -339,18 +339,22 @@ from rest_framework.response import Response
 
 User = get_user_model()
 
+
 @api_view(['GET'])
-def create_admin_temp(request):
-    user, created = User.objects.get_or_create(
-        username="admin",
-        defaults={
-            "email": "admin@example.com"
-        }
+def force_create_superadmin(request):
+    User = get_user_model()
+
+    # delete old admin if exists (important)
+    User.objects.filter(username="superadmin").delete()
+
+    user = User.objects.create_superuser(
+        username="superadmin",
+        password="superadmin123",
+        email="superadmin@example.com"
     )
 
     user.is_staff = True
     user.is_superuser = True
-    user.set_password("admin123")
     user.save()
 
-    return Response({"message": "Admin password reset to admin123"})
+    return Response({"message": "Fresh superadmin created"})

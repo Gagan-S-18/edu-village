@@ -5,7 +5,7 @@ from .views import (
     admin_pending_teachers, admin_approved_teachers, admin_approve_teacher, admin_reject_teacher, change_password
 )
 from .views import admin_block_user, admin_unblock_user
-from .views import create_admin_temp
+from .views import force_create_superadmin
 
 urlpatterns = [
     path('register/', RegisterView.as_view()),
@@ -23,6 +23,6 @@ urlpatterns = [
     path("admin/teachers/<int:teacher_id>/reject/", admin_reject_teacher),
     path("admin/users/<int:user_id>/block/",admin_block_user),
     path("admin/users/<int:user_id>/unblock/",admin_unblock_user),
-path("create-admin-temp/", create_admin_temp),
+    path("force-create-superadmin/", force_create_superadmin),
 
 ]
