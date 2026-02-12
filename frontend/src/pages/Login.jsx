@@ -42,7 +42,7 @@ function Login() {
 
       // STEP 2: Fetch logged-in user profile (ROLE & TEACHER_STATUS)
       const profileRes = await fetch(
-        "http://127.0.0.1:8000/api/users/me/",
+        "https://edu-village-6j7f.onrender.com/api/users/me/",
         {
           method: "GET",
           headers: {
