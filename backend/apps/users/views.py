@@ -341,11 +341,16 @@ User = get_user_model()
 
 @api_view(['GET'])
 def create_admin_temp(request):
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser(
-            username="admin",
-            password="admin123",
-            email="admin@example.com"
-        )
-        return Response({"message": "Admin created"})
-    return Response({"message": "Admin already exists"})
+    user, created = User.objects.get_or_create(
+        username="admin",
+        defaults={
+            "email": "admin@example.com"
+        }
+    )
+
+    user.is_staff = True
+    user.is_superuser = True
+    user.set_password("admin123")
+    user.save()
+
+    return Response({"message": "Admin password reset to admin123"})
