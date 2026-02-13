@@ -17,7 +17,8 @@ class User(AbstractUser):
     role = models.CharField(
         max_length=20,
         choices=ROLE_CHOICES,
-        default='student'
+        default='student' 
+        # 'admin'
     )
     
     # Teacher approval workflow
