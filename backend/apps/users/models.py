@@ -51,3 +51,8 @@ class User(AbstractUser):
         null=True,
         help_text="Years of teaching experience"
     )
+
+    # def save(self, *args, **kwargs):
+    #     if self.is_superuser:
+    #         self.role = "admin"
+    #     super().save(*args, **kwargs)

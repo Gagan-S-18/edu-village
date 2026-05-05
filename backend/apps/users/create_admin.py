@@ -29,11 +29,19 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 def create_admin():
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser(
-            username="admin",
-            email="admin@example.com",
-            password="admin123"
-        )
+    user, created = User.objects.get_or_create(
+        username='admin',
+        defaults={
+            'email': 'admin@example.com',
+            'is_staff': True,
+            'is_superuser': True,
+            'role': 'admin',
+        }
+    )
 
-create_admin()
+    # Always reset password and role
+    user.set_password('admin123')
+    user.is_staff = True
+    user.is_superuser = True
+    user.role = 'admin'
+    user.save()
